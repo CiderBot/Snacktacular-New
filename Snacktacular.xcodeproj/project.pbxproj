@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA8D2F0F2AC386660078BF54 /* SnacktacularApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */; };
-		AA8D2F112AC386660078BF54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F102AC386660078BF54 /* ContentView.swift */; };
+		AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F102AC386660078BF54 /* LoginView.swift */; };
 		AA8D2F132AC386670078BF54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D2F122AC386670078BF54 /* Assets.xcassets */; };
 		AA8D2F162AC386670078BF54 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D2F152AC386670078BF54 /* Preview Assets.xcassets */; };
 		AA8D2F202AC38D000078BF54 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AA8D2F1F2AC38D000078BF54 /* FirebaseAnalytics */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		AA8D2F0B2AC386660078BF54 /* Snacktacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snacktacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnacktacularApp.swift; sourceTree = "<group>"; };
-		AA8D2F102AC386660078BF54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA8D2F102AC386660078BF54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AA8D2F122AC386670078BF54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA8D2F152AC386670078BF54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA8D2F1C2AC386E60078BF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			children = (
 				AA8D2F1C2AC386E60078BF54 /* Info.plist */,
 				AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */,
-				AA8D2F102AC386660078BF54 /* ContentView.swift */,
+				AA8D2F102AC386660078BF54 /* LoginView.swift */,
 				AA8D2F122AC386670078BF54 /* Assets.xcassets */,
 				AA8D2F352AC38EF90078BF54 /* GoogleService-Info.plist */,
 				AA8D2F142AC386670078BF54 /* Preview Content */,
@@ -183,7 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8D2F112AC386660078BF54 /* ContentView.swift in Sources */,
+				AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */,
 				AA8D2F0F2AC386660078BF54 /* SnacktacularApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
