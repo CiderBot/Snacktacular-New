@@ -48,7 +48,7 @@ struct LoginView: View {
                 .padding(.trailing)
                 
                 Button {
-                    
+                    login()
                 } label: {
                     Text("Login")
                 }
@@ -68,11 +68,24 @@ struct LoginView: View {
     func register() {
         Auth.auth().createUser(withEmail: email, password: password) { Result, error in
             if let error = error { // signup error occur
-                print("😡 LOGIN ERROR: \(error.localizedDescription)")
+                print("😡 SIGN UP ERROR: \(error.localizedDescription)")
+                alertMessage = "SIGN UP ERROR: \(error.localizedDescription)"
+                showAlert = true
+            } else {
+                print("🙂 Registration Success!")
+                //TODO: load list view
+            }
+        }
+    }
+    
+    func login() {
+        Auth.auth().signIn(withEmail: email, password: password) { Result, error in
+            if let error = error { // signup error occur
+                print("😡 LOG IN ERROR: \(error.localizedDescription)")
                 alertMessage = "LOGIN ERROR: \(error.localizedDescription)"
                 showAlert = true
             } else {
-                print("🙂 Sign Up Success!")
+                print("🪵 Login Success!")
                 //TODO: load list view
             }
         }
