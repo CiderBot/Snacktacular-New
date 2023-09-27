@@ -23,6 +23,7 @@
 		AA8D2F322AC38D000078BF54 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = AA8D2F312AC38D000078BF54 /* FirebaseDatabase */; };
 		AA8D2F342AC38D000078BF54 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA8D2F332AC38D000078BF54 /* FirebaseDatabaseSwift */; };
 		AA8D2F362AC38EF90078BF54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8D2F352AC38EF90078BF54 /* GoogleService-Info.plist */; };
+		AA8D2F382AC4B6090078BF54 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F372AC4B6090078BF54 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		AA8D2F1C2AC386E60078BF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AA8D2F1D2AC387210078BF54 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AA8D2F352AC38EF90078BF54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA8D2F372AC4B6090078BF54 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				AA8D2F1C2AC386E60078BF54 /* Info.plist */,
 				AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */,
 				AA8D2F102AC386660078BF54 /* LoginView.swift */,
+				AA8D2F372AC4B6090078BF54 /* ListView.swift */,
 				AA8D2F122AC386670078BF54 /* Assets.xcassets */,
 				AA8D2F352AC38EF90078BF54 /* GoogleService-Info.plist */,
 				AA8D2F142AC386670078BF54 /* Preview Content */,
@@ -185,6 +188,7 @@
 			files = (
 				AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */,
 				AA8D2F0F2AC386660078BF54 /* SnacktacularApp.swift in Sources */,
+				AA8D2F382AC4B6090078BF54 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

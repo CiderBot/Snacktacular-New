@@ -19,6 +19,8 @@ struct LoginView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var buttonDisabled = true
+    // change from online lesson, for some reason, the path code was not working, using the bool instead
+    @State private var loginSuccess = false
     
     var body: some View {
         NavigationStack {
@@ -80,9 +82,19 @@ struct LoginView: View {
             .font(.title2)
             .padding(.top)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(isPresented: $loginSuccess) {
+                ListView()
+            }
         }
         .alert(alertMessage, isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
+        }
+        .onAppear() {
+            // if login, skip login screen
+            if Auth.auth().currentUser != nil {
+                print("🪵 Login Success!")
+                loginSuccess = true
+            }
         }
     }
     
@@ -90,11 +102,11 @@ struct LoginView: View {
         Auth.auth().createUser(withEmail: email, password: password) { Result, error in
             if let error = error { // signup error occur
                 print("😡 SIGN UP ERROR: \(error.localizedDescription)")
-                alertMessage = "SIGN UP ERROR: \(error.localizedDescription)"
+                alertMessage = "SIGN UP ERROR: \(error.localizedDescription))"
                 showAlert = true
             } else {
                 print("🙂 Registration Success!")
-                //TODO: load list view
+                loginSuccess = true
             }
         }
     }
@@ -106,8 +118,8 @@ struct LoginView: View {
                 alertMessage = "LOGIN ERROR: \(error.localizedDescription)"
                 showAlert = true
             } else {
-                print("🪵 Login Success!")
-                //TODO: load list view
+                print("🪵⬅️ Login Success!")
+                loginSuccess = true
             }
         }
     }
