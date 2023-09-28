@@ -83,7 +83,7 @@ struct LoginView: View {
             .padding(.top)
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $loginSuccess) {
-                ListView()
+                SpotListView()
             }
         }
         .alert(alertMessage, isPresented: $showAlert) {
