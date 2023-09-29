@@ -38,6 +38,8 @@
 		AA2CA0BC2AC5F59700771674 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */; };
 		AA2CA0E72AC7394A00771674 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0E62AC7394A00771674 /* LocationManager.swift */; };
 		AA2CA0E92AC7397300771674 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0E82AC7397300771674 /* Place.swift */; };
+		AA2CA0EB2AC73E2900771674 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0EA2AC73E2900771674 /* PlaceViewModel.swift */; };
+		AA2CA0ED2AC73E4300771674 /* PlaceLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0EC2AC73E4300771674 /* PlaceLookupView.swift */; };
 		AA8D2F0F2AC386660078BF54 /* SnacktacularApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */; };
 		AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F102AC386660078BF54 /* LoginView.swift */; };
 		AA8D2F132AC386670078BF54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D2F122AC386670078BF54 /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		AA2CA0E62AC7394A00771674 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AA2CA0E82AC7397300771674 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		AA2CA0EA2AC73E2900771674 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
+		AA2CA0EC2AC73E4300771674 /* PlaceLookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLookupView.swift; sourceTree = "<group>"; };
 		AA8D2F0B2AC386660078BF54 /* Snacktacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snacktacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnacktacularApp.swift; sourceTree = "<group>"; };
 		AA8D2F102AC386660078BF54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				AA8D2F102AC386660078BF54 /* LoginView.swift */,
 				AA8D2F372AC4B6090078BF54 /* SpotListView.swift */,
 				AA2CA0B92AC4F27F00771674 /* SpotDetailView.swift */,
+				AA2CA0EC2AC73E4300771674 /* PlaceLookupView.swift */,
 				AA8D2F122AC386670078BF54 /* Assets.xcassets */,
 				AA8D2F352AC38EF90078BF54 /* GoogleService-Info.plist */,
 				AA8D2F142AC386670078BF54 /* Preview Content */,
@@ -172,6 +177,7 @@
 				AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */,
 				AA2CA0E62AC7394A00771674 /* LocationManager.swift */,
 				AA2CA0E82AC7397300771674 /* Place.swift */,
+				AA2CA0EA2AC73E2900771674 /* PlaceViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA2CA0BA2AC4F27F00771674 /* SpotDetailView.swift in Sources */,
+				AA2CA0EB2AC73E2900771674 /* PlaceViewModel.swift in Sources */,
+				AA2CA0ED2AC73E4300771674 /* PlaceLookupView.swift in Sources */,
 				AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */,
 				AA2CA0BC2AC5F59700771674 /* SpotViewModel.swift in Sources */,
 				AA2CA0E92AC7397300771674 /* Place.swift in Sources */,
@@ -435,6 +443,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Snacktacular/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires location services";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires location services";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -464,6 +474,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Snacktacular/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires location services";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires location services";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
