@@ -36,6 +36,8 @@
 		AA2CA0B82AC4F1AA00771674 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AA2CA0B72AC4F1AA00771674 /* FirebaseStorageCombine-Community */; };
 		AA2CA0BA2AC4F27F00771674 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0B92AC4F27F00771674 /* SpotDetailView.swift */; };
 		AA2CA0BC2AC5F59700771674 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */; };
+		AA2CA0E72AC7394A00771674 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0E62AC7394A00771674 /* LocationManager.swift */; };
+		AA2CA0E92AC7397300771674 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0E82AC7397300771674 /* Place.swift */; };
 		AA8D2F0F2AC386660078BF54 /* SnacktacularApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */; };
 		AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2F102AC386660078BF54 /* LoginView.swift */; };
 		AA8D2F132AC386670078BF54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D2F122AC386670078BF54 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 /* Begin PBXFileReference section */
 		AA2CA0B92AC4F27F00771674 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
+		AA2CA0E62AC7394A00771674 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		AA2CA0E82AC7397300771674 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		AA8D2F0B2AC386660078BF54 /* Snacktacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snacktacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnacktacularApp.swift; sourceTree = "<group>"; };
 		AA8D2F102AC386660078BF54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 			children = (
 				AA8D2F3A2AC4E64B0078BF54 /* Spot.swift */,
 				AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */,
+				AA2CA0E62AC7394A00771674 /* LocationManager.swift */,
+				AA2CA0E82AC7397300771674 /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +293,8 @@
 				AA2CA0BA2AC4F27F00771674 /* SpotDetailView.swift in Sources */,
 				AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */,
 				AA2CA0BC2AC5F59700771674 /* SpotViewModel.swift in Sources */,
+				AA2CA0E92AC7397300771674 /* Place.swift in Sources */,
+				AA2CA0E72AC7394A00771674 /* LocationManager.swift in Sources */,
 				AA8D2F0F2AC386660078BF54 /* SnacktacularApp.swift in Sources */,
 				AA8D2F382AC4B6090078BF54 /* SpotListView.swift in Sources */,
 				AA8D2F3B2AC4E64B0078BF54 /* Spot.swift in Sources */,
