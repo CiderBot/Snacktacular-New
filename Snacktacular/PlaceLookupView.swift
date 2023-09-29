@@ -6,13 +6,56 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct PlaceLookupView: View {
+    @EnvironmentObject var locationManager: LocationManager
+    @StateObject var placeVM = PlaceViewModel()
+    @Environment(\.dismiss) private var dismiss
+    @State private var searchText = ""
+    
+    @Binding var returnedSpot : Spot
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List(placeVM.placesList) { place in
+                VStack (alignment: .leading) {
+                    Text(place.name)
+                        .font(.title)
+                    Text(place.address)
+                        .font(.title2)
+                }
+                .onTapGesture {
+                    returnedSpot.name = place.name
+                    returnedSpot.address = place.address
+                    returnedSpot.latitude = place.latitude
+                    returnedSpot.longitude = place.longitude
+                    dismiss()
+                }
+            }
+            .listStyle(.plain)
+            .searchable(text: $searchText)
+            .onChange(of: searchText, {
+                if !searchText.isEmpty {
+                    //note: can add to search text
+                    // let newSearchText = "restaurant" + searchText
+                    placeVM.search(searchText: searchText, region: locationManager.region)
+                } else {
+                    placeVM.placesList = []
+                }
+            })
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button("Dismiss") {
+                        dismiss()
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    PlaceLookupView()
+    PlaceLookupView(returnedSpot: .constant(Spot()))
+        .environmentObject(LocationManager())
 }

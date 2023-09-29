@@ -28,7 +28,8 @@ class SpotViewModel: ObservableObject {
             }
         } else {    // no id, must be new spot to add
             do {
-                try await db.collection(collectionName).addDocument(data: spot.dictionary)
+                // addDocument will return a document reference which we are not using
+                _ = try await db.collection(collectionName).addDocument(data: spot.dictionary)
                 // note: firebase will generate the id on add
                 print("😎 Data for '\(collectionName)' addeded successfull!")
                 return true

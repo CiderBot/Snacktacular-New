@@ -12,6 +12,8 @@ struct SpotDetailView: View {
     @EnvironmentObject var spotVM : SpotViewModel
     @State var spot: Spot
     
+    @State private var showPlaceLookupSheet = false
+    
     var body: some View {
         VStack {
             Group {
@@ -51,7 +53,19 @@ struct SpotDetailView: View {
                         dismiss()
                     }
                 }
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        showPlaceLookupSheet.toggle()
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                        Text("Lookup Place")
+                    }
+
+                }
             }
+        }
+        .sheet(isPresented: $showPlaceLookupSheet) {
+            PlaceLookupView(returnedSpot: $spot)
         }
     }
 }

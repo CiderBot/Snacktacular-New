@@ -12,8 +12,10 @@ struct Spot: Identifiable, Codable {
     @DocumentID var id: String?
     var name = ""
     var address = ""
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
     
     var dictionary: [String: Any] {
-        return ["name": name, "address": address]
+        return ["name": name, "address": address, "latitude": latitude, "longitude": longitude]
     }
 }
