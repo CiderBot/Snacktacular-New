@@ -35,15 +35,13 @@ struct PlaceLookupView: View {
             }
             .listStyle(.plain)
             .searchable(text: $searchText)
-            .onChange(of: searchText, {
+            .onChange(of: searchText) {
                 if !searchText.isEmpty {
-                    //note: can add to search text
-                    // let newSearchText = "restaurant" + searchText
                     placeVM.search(searchText: searchText, region: locationManager.region)
                 } else {
                     placeVM.placesList = []
                 }
-            })
+            }
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button("Dismiss") {

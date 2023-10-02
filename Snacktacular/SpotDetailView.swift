@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct SpotDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var spotVM : SpotViewModel
-    @State var spot: Spot
     
+    @State var spot: Spot   // return to SpotListView
     @State private var showPlaceLookupSheet = false
+    
+    // mapping stuff
+    @State private var mapRegion = MKCoordinateRegion()
+    @State private var cameraMapRegion = MapCameraPosition.region(MKCoordinateRegion())
+    let regionSize = 500.0 //meters
+    @EnvironmentObject var locationManager: LocationManager
+    // location manager is also needed for PlaceLookupView to work in preview mode
     
     var body: some View {
         VStack {
@@ -28,7 +36,30 @@ struct SpotDetailView: View {
                 RoundedRectangle(cornerRadius: 5.0)
                     .stroke(.gray .opacity(0.5), lineWidth: spot.id == nil ? 2.0 : 0.0)
             }
+            Map(position: $cameraMapRegion) {
+                // bug: new spot does not center, for some reason, the location of the device is not returned
+                Marker(spot.name, coordinate: spot.coordinate)
+                    .tint(.blue)
+            }
+            .onChange(of: spot.address) {
+                mapRegion = MKCoordinateRegion(center: spot.coordinate, latitudinalMeters: regionSize, longitudinalMeters: regionSize)
+                cameraMapRegion = MapCameraPosition.region(mapRegion)
+            }
+            .mapControls {
+                MapUserLocationButton()
+            }
             Spacer()
+        }
+        .onAppear {
+            if spot.id != nil { // looking at existing spot, center map on spot
+                mapRegion = MKCoordinateRegion(center: spot.coordinate, latitudinalMeters: regionSize, longitudinalMeters: regionSize)
+            } else {    // no spot, center on device location
+                Task {  // need to wait for map coordinate
+                    mapRegion = MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(), latitudinalMeters: regionSize, longitudinalMeters: regionSize)
+                }
+                //print("\(mapRegion)")
+            }
+            cameraMapRegion = MapCameraPosition.region(mapRegion)
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
@@ -74,5 +105,6 @@ struct SpotDetailView: View {
     NavigationStack {
         SpotDetailView(spot: Spot())
             .environmentObject(SpotViewModel())
+            .environmentObject(LocationManager())
     }
 }

@@ -19,8 +19,12 @@ struct SpotListView: View {
             NavigationLink {
                 SpotDetailView(spot: spot)
             } label: {
-                Text(spot.name)
-                    .font(.title2)
+                VStack(alignment: .leading) {
+                    Text(spot.name)
+                        .font(.title2)
+                    Text(spot.address)
+                        .font(.callout)
+                }
             }
         }
         .listStyle(.plain)
