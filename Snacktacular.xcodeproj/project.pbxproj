@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA282EAD2ACB31C8005DE348 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282EAC2ACB31C8005DE348 /* Review.swift */; };
+		AA282EB12ACB34D7005DE348 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282EB02ACB34D7005DE348 /* ReviewView.swift */; };
+		AA282EB32ACB3F3E005DE348 /* StarSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282EB22ACB3F3E005DE348 /* StarSelectionView.swift */; };
 		AA2CA0842AC4F1AA00771674 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AA2CA0832AC4F1AA00771674 /* FirebaseAnalytics */; };
 		AA2CA0862AC4F1AA00771674 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = AA2CA0852AC4F1AA00771674 /* FirebaseAnalyticsOnDeviceConversion */; };
 		AA2CA0882AC4F1AA00771674 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA2CA0872AC4F1AA00771674 /* FirebaseAnalyticsSwift */; };
@@ -61,6 +64,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA282EAC2ACB31C8005DE348 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		AA282EB02ACB34D7005DE348 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		AA282EB22ACB3F3E005DE348 /* StarSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSelectionView.swift; sourceTree = "<group>"; };
 		AA2CA0B92AC4F27F00771674 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		AA2CA0E62AC7394A00771674 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -128,6 +134,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA282EAE2ACB321B005DE348 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA2CA0E62AC7394A00771674 /* LocationManager.swift */,
+				AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */,
+				AA2CA0EA2AC73E2900771674 /* PlaceViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AA282EAF2ACB3421005DE348 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA8D2F102AC386660078BF54 /* LoginView.swift */,
+				AA8D2F372AC4B6090078BF54 /* SpotListView.swift */,
+				AA2CA0B92AC4F27F00771674 /* SpotDetailView.swift */,
+				AA2CA0EC2AC73E4300771674 /* PlaceLookupView.swift */,
+				AA282EB02ACB34D7005DE348 /* ReviewView.swift */,
+				AA282EB22ACB3F3E005DE348 /* StarSelectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		AA8D2F022AC386660078BF54 = {
 			isa = PBXGroup;
 			children = (
@@ -150,11 +179,9 @@
 			children = (
 				AA8D2F1C2AC386E60078BF54 /* Info.plist */,
 				AA8D2F0E2AC386660078BF54 /* SnacktacularApp.swift */,
-				AA8D2F392AC4E62A0078BF54 /* Model */,
-				AA8D2F102AC386660078BF54 /* LoginView.swift */,
-				AA8D2F372AC4B6090078BF54 /* SpotListView.swift */,
-				AA2CA0B92AC4F27F00771674 /* SpotDetailView.swift */,
-				AA2CA0EC2AC73E4300771674 /* PlaceLookupView.swift */,
+				AA8D2F392AC4E62A0078BF54 /* Models */,
+				AA282EAE2ACB321B005DE348 /* ViewModels */,
+				AA282EAF2ACB3421005DE348 /* Views */,
 				AA8D2F122AC386670078BF54 /* Assets.xcassets */,
 				AA8D2F352AC38EF90078BF54 /* GoogleService-Info.plist */,
 				AA8D2F142AC386670078BF54 /* Preview Content */,
@@ -170,16 +197,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AA8D2F392AC4E62A0078BF54 /* Model */ = {
+		AA8D2F392AC4E62A0078BF54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				AA8D2F3A2AC4E64B0078BF54 /* Spot.swift */,
-				AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */,
-				AA2CA0E62AC7394A00771674 /* LocationManager.swift */,
+				AA282EAC2ACB31C8005DE348 /* Review.swift */,
 				AA2CA0E82AC7397300771674 /* Place.swift */,
-				AA2CA0EA2AC73E2900771674 /* PlaceViewModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,12 +325,15 @@
 				AA2CA0EB2AC73E2900771674 /* PlaceViewModel.swift in Sources */,
 				AA2CA0ED2AC73E4300771674 /* PlaceLookupView.swift in Sources */,
 				AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */,
+				AA282EB12ACB34D7005DE348 /* ReviewView.swift in Sources */,
 				AA2CA0BC2AC5F59700771674 /* SpotViewModel.swift in Sources */,
 				AA2CA0E92AC7397300771674 /* Place.swift in Sources */,
+				AA282EAD2ACB31C8005DE348 /* Review.swift in Sources */,
 				AA2CA0E72AC7394A00771674 /* LocationManager.swift in Sources */,
 				AA8D2F0F2AC386660078BF54 /* SnacktacularApp.swift in Sources */,
 				AA8D2F382AC4B6090078BF54 /* SpotListView.swift in Sources */,
 				AA8D2F3B2AC4E64B0078BF54 /* Spot.swift in Sources */,
+				AA282EB32ACB3F3E005DE348 /* StarSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
