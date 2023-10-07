@@ -37,7 +37,9 @@ struct PlaceLookupView: View {
             .searchable(text: $searchText)
             .onChange(of: searchText) {
                 if !searchText.isEmpty {
-                    placeVM.search(searchText: searchText, region: locationManager.region)
+                    let searchRegion = (locationManager.location == nil) ? locationManager.appleHQReg :
+                    locationManager.region
+                    placeVM.search(searchText: searchText, region: searchRegion)
                 } else {
                     placeVM.placesList = []
                 }
