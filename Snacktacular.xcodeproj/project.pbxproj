@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA100F942AF2D9C900F7176B /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA100F932AF2D9C900F7176B /* ReviewViewModel.swift */; };
 		AA282EAD2ACB31C8005DE348 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282EAC2ACB31C8005DE348 /* Review.swift */; };
 		AA282EB12ACB34D7005DE348 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282EB02ACB34D7005DE348 /* ReviewView.swift */; };
 		AA282EB32ACB3F3E005DE348 /* StarSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282EB22ACB3F3E005DE348 /* StarSelectionView.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA100F932AF2D9C900F7176B /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		AA282EAC2ACB31C8005DE348 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		AA282EB02ACB34D7005DE348 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		AA282EB22ACB3F3E005DE348 /* StarSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSelectionView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				AA2CA0E62AC7394A00771674 /* LocationManager.swift */,
 				AA2CA0BB2AC5F59700771674 /* SpotViewModel.swift */,
+				AA100F932AF2D9C900F7176B /* ReviewViewModel.swift */,
 				AA2CA0EA2AC73E2900771674 /* PlaceViewModel.swift */,
 			);
 			path = ViewModels;
@@ -323,6 +326,7 @@
 			files = (
 				AA2CA0BA2AC4F27F00771674 /* SpotDetailView.swift in Sources */,
 				AA2CA0EB2AC73E2900771674 /* PlaceViewModel.swift in Sources */,
+				AA100F942AF2D9C900F7176B /* ReviewViewModel.swift in Sources */,
 				AA2CA0ED2AC73E4300771674 /* PlaceLookupView.swift in Sources */,
 				AA8D2F112AC386660078BF54 /* LoginView.swift in Sources */,
 				AA282EB12ACB34D7005DE348 /* ReviewView.swift in Sources */,

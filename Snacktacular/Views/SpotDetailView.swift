@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import FirebaseFirestoreSwift
 
 struct SpotDetailView: View {
     @Environment(\.dismiss) private var dismiss
@@ -16,12 +17,13 @@ struct SpotDetailView: View {
     
     @State var spot: Spot   // return to SpotListView
     @State private var showPlaceLookupSheet = false
+    @State private var showReviewViewSheet = false
+    
+    // the real path can not be set here, it will be done in onAppear
+    //@FirestoreQuery(collectionPath: "spots") var spotsList: [Spot]
     
     // flag to see if we are running in preview in xCode, set in the preview statement below
     var previewRunning = false
-    
-    // mapping stuff
-    //@State private var cameraRegion = MKCoordinateRegion()
     
     var body: some View {
         VStack {
@@ -52,6 +54,40 @@ struct SpotDetailView: View {
                 }
                     
             }
+            .frame(height: 250)
+            
+            List {
+                Section {
+                    /*
+                    ForEach(reviews) { review in
+                        NavigationLink {
+                            ReviewView(spot: spot, review: review)
+                        } label: {
+                            Text(review.title)
+                        }
+                    }*/
+                } header: {
+                    HStack {
+                        Text("Avg. Rating:")
+                            .font(.title2)
+                            .bold()
+                        Text("4.5")
+                            .font(.title)
+                            .fontWeight(.black)
+                            .foregroundColor(Color("SnackColor"))
+                        Spacer()
+                        Button("Rate It") {
+                            showReviewViewSheet.toggle()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .bold()
+                        .tint(Color("SnackColor"))
+                    }
+                }
+            }
+            .listStyle(.plain)
+            .headerProminence(.increased)
+            
             Spacer()
         }
         .padding()
@@ -90,6 +126,17 @@ struct SpotDetailView: View {
         }
         .sheet(isPresented: $showPlaceLookupSheet) {
             PlaceLookupView(returnedSpot: $spot)
+        }
+        .sheet(isPresented: $showReviewViewSheet) {
+            NavigationStack {
+                ReviewView(spot: spot, review: Review())
+            }
+        }
+        .onAppear {
+            if !previewRunning {
+                //$reviews.path = "spots/\(spot.id ?? "")/reviews"
+                //print("reviews.path = \($reviews.path)")
+            }
         }
     }
     

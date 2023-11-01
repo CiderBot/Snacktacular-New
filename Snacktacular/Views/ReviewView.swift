@@ -11,6 +11,7 @@ struct ReviewView: View {
     @Environment(\.dismiss) private var dismiss
     @State var spot: Spot
     @State var review: Review
+    @StateObject var reviewVM = ReviewViewModel()
     
     var body: some View {
         VStack {
@@ -31,7 +32,7 @@ struct ReviewView: View {
                     .font(.title2)
                     .bold()
                 HStack {
-                    StarSelectionView(rating: review.rating)
+                    StarSelectionView(rating: $review.rating)
                         .overlay {
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(.gray .opacity(0.5), lineWidth: 2)
@@ -51,7 +52,7 @@ struct ReviewView: View {
                     }
                 Text("Review:")
                     .bold()
-                TextField("title", text: $review.title)
+                TextField("review", text: $review.body)
                     .padding(.horizontal, 6)
                     .frame(maxHeight: .infinity, alignment: .topLeading)
                     .overlay {
@@ -71,6 +72,14 @@ struct ReviewView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Save") {
+                    Task {
+                        let success = await reviewVM.saveReview(spot:spot, review: review)
+                        if success {
+                            // can put dismiss here
+                        } else {
+                            // can put some sort of error processing here
+                        }
+                    }
                     dismiss()
                 }
             }
@@ -80,6 +89,6 @@ struct ReviewView: View {
 
 #Preview {
     NavigationStack {
-        ReviewView(spot: Spot(name: "Shake Shack", address: "49 Boyleston Street, More info, Chestnut Hill, MA"), review: Review())
+        ReviewView(spot: Spot(name: "Shake Shack", address: "49 Boyleston Street, Chestnut Hill, MA"), review: Review())
     }
 }
