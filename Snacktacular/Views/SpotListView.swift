@@ -15,7 +15,7 @@ struct SpotListView: View {
     @State private var inAddMode = false
     
     var body: some View {
-        NavigationStack {
+        NavigationStack { //
             List(spotsList) { spot in
                 NavigationLink {
                     SpotDetailView(spot: spot)
