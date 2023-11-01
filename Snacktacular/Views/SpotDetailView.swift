@@ -20,7 +20,7 @@ struct SpotDetailView: View {
     @State private var showReviewViewSheet = false
     
     // the real path can not be set here, it will be done in onAppear
-    //@FirestoreQuery(collectionPath: "spots") var spotsList: [Spot]
+    @FirestoreQuery(collectionPath: "spots") var reviewsList: [Review]
     
     // flag to see if we are running in preview in xCode, set in the preview statement below
     var previewRunning = false
@@ -58,14 +58,13 @@ struct SpotDetailView: View {
             
             List {
                 Section {
-                    /*
-                    ForEach(reviews) { review in
+                    ForEach(reviewsList) { review in
                         NavigationLink {
                             ReviewView(spot: spot, review: review)
                         } label: {
                             Text(review.title)
                         }
-                    }*/
+                    }
                 } header: {
                     HStack {
                         Text("Avg. Rating:")
@@ -134,8 +133,8 @@ struct SpotDetailView: View {
         }
         .onAppear {
             if !previewRunning {
-                //$reviews.path = "spots/\(spot.id ?? "")/reviews"
-                //print("reviews.path = \($reviews.path)")
+                $reviewsList.path = "spots/\(spot.id ?? "")/reviews"
+                print("reviews.path = \($reviewsList.path)")
             }
         }
     }

@@ -15,47 +15,49 @@ struct SpotListView: View {
     @State private var inAddMode = false
     
     var body: some View {
-        List(spotsList) { spot in
-            NavigationLink {
-                SpotDetailView(spot: spot)
-            } label: {
-                VStack(alignment: .leading) {
-                    Text(spot.name)
-                        .font(.title2)
-                    Text(spot.address)
-                        .font(.callout)
-                }
-            }
-        }
-        .listStyle(.plain)
-        .navigationTitle("Snack Spots")
-        .navigationBarTitleDisplayMode(.large)
-        .navigationBarBackButtonHidden()
-        .toolbar{
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Sign Out") {
-                    do {
-                        try Auth.auth().signOut()
-                        print("🪵➡️ Logout Success!")
-                        dismiss()
-                    } catch {
-                        print("😡 SIGN OUT ERROR")
+        NavigationStack {
+            List(spotsList) { spot in
+                NavigationLink {
+                    SpotDetailView(spot: spot)
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text(spot.name)
+                            .font(.title2)
+                        Text(spot.address)
+                            .font(.callout)
                     }
                 }
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    inAddMode.toggle()
-                } label: {
-                    Image(systemName: "plus")
+            .listStyle(.plain)
+            .navigationTitle("Snack Spots")
+            .navigationBarTitleDisplayMode(.large)
+            .navigationBarBackButtonHidden()
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Sign Out") {
+                        do {
+                            try Auth.auth().signOut()
+                            print("🪵➡️ Logout Success!")
+                            dismiss()
+                        } catch {
+                            print("😡 SIGN OUT ERROR")
+                        }
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        inAddMode.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
                 }
             }
-        }
-        .sheet(isPresented: $inAddMode, content: {
-            NavigationStack {
-                SpotDetailView(spot: Spot())
-            }
+            .sheet(isPresented: $inAddMode, content: {
+                NavigationStack {
+                    SpotDetailView(spot: Spot())
+                }
         })
+        }
     }
 }
 

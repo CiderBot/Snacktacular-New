@@ -19,11 +19,10 @@ struct LoginView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var buttonDisabled = true
-    // change from online lesson, for some reason, the path code was not working, using the bool instead
     @State private var loginSuccess = false
     
     var body: some View {
-        NavigationStack {
+        VStack {
             Image("logo")
                 .resizable()
                 .scaledToFit()
@@ -95,6 +94,9 @@ struct LoginView: View {
                 print("🪵 Login Success!")
                 loginSuccess = true
             }
+        }
+        .fullScreenCover(isPresented: $loginSuccess) {
+            SpotListView()
         }
     }
     
