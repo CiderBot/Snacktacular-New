@@ -18,6 +18,8 @@ struct SpotDetailView: View {
     @State var spot: Spot   // return to SpotListView
     @State private var showPlaceLookupSheet = false
     @State private var showReviewViewSheet = false
+    @State private var showSaveAlert = false
+    @State private var inAddMode = false
     
     // the real path can not be set here, it will be done in onAppear
     @FirestoreQuery(collectionPath: "spots") var reviewsList: [Review]
@@ -76,11 +78,16 @@ struct SpotDetailView: View {
                             .foregroundColor(Color("SnackColor"))
                         Spacer()
                         Button("Rate It") {
-                            showReviewViewSheet.toggle()
+                            if spot.id == nil {
+                                showSaveAlert.toggle()
+                            } else {
+                                showReviewViewSheet.toggle()
+                            }
                         }
                         .buttonStyle(.borderedProminent)
                         .bold()
                         .tint(Color("SnackColor"))
+                        .disabled(spot.name.isEmpty)
                     }
                 }
             }
@@ -93,33 +100,41 @@ struct SpotDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(spot.id == nil)
         .toolbar {
-            if spot.id == nil { // new spot, show cancel/save buttons
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
+            if inAddMode {
+                if spot.id == nil { // new spot, show cancel/save buttons
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            dismiss()
+                        }
                     }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        Task {
-                            let success = await spotVM.saveSpot(spot)
-                            if success {
-                                dismiss()
-                            } else {
-                                print("Error saving \(spotVM.collectionName) info")
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Save") {
+                            Task {
+                                let success = await spotVM.saveSpot(spot)
+                                if success {
+                                    dismiss()
+                                } else {
+                                    print("Error saving \(spotVM.collectionName) info")
+                                }
                             }
                         }
-                        dismiss()
+                        .disabled(spot.name.isEmpty)
                     }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        showPlaceLookupSheet.toggle()
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                        Text("Lookup Place")
-                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button {
+                            showPlaceLookupSheet.toggle()
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                            Text("Lookup Place")
+                        }
 
+                    }
+                } else {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Done") {
+                            dismiss()
+                        }
+                    }
                 }
             }
         }
@@ -131,10 +146,31 @@ struct SpotDetailView: View {
                 ReviewView(spot: spot, review: Review())
             }
         }
+        .alert("Spot Not Saved", isPresented: $showSaveAlert, actions: {
+            Button("Cancel", role: .cancel) { /* do nothing */ }
+            Button("Save", role: .none) {
+                Task {
+                    Task {
+                        let success = await spotVM.saveSpot(spot)
+                        spot = spotVM.spot
+                        if success {
+                            $reviewsList.path = "spots/\(spot.id ?? "")/reviews"
+                            showReviewViewSheet.toggle()
+                        } else {
+                            print("Error saving \(spotVM.collectionName) info")
+                        }
+                    }
+                }
+            }
+        }, message: {
+            Text("Would you like to save this Spot first so yu can enter a review?")
+        })
         .onAppear {
-            if !previewRunning {
+            if !previewRunning && spot.id != nil {
                 $reviewsList.path = "spots/\(spot.id ?? "")/reviews"
                 print("reviews.path = \($reviewsList.path)")
+            } else {
+                inAddMode = true
             }
         }
     }

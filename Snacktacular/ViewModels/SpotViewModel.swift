@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
+@MainActor
 class SpotViewModel: ObservableObject {
     @Published var spot = Spot()
     
@@ -29,7 +30,9 @@ class SpotViewModel: ObservableObject {
         } else {    // no id, must be new spot to add
             do {
                 // addDocument will return a document reference which we are not using
-                _ = try await db.collection(collectionName).addDocument(data: spot.dictionary)
+                let documentRef = try await db.collection(collectionName).addDocument(data: spot.dictionary)
+                self.spot = spot
+                self.spot.id = documentRef.documentID
                 // note: firebase will generate the id on add
                 print("😎 Data for '\(collectionName)' addeded successfull!")
                 return true
